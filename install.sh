@@ -52,16 +52,10 @@ sudo -H pip3 install --verbose boto3 pandas
 
 
 
-# Install traitlets (master, to support the unlink() method)
-echo "\e[48;5;172m Install traitlets \e[0m"
-#sudo -H python3 -m pip install git+https://github.com/ipython/traitlets@master
-sudo python3 -m pip install git+https://github.com/ipython/traitlets@dead2b8cdde5913572254cf6dc70b5a6065b86f8
-
-# Install JupyterLab (lock to 2.2.6, latest as of Sept 2020)
-echo "\e[48;5;172m Install Jupyter Lab 2.2.6 \e[0m"
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install -y nodejs libffi-dev libssl1.0-dev 
-sudo -H pip3 install jupyter jupyterlab==2.2.6 --verbose
+echo "\e[48;5;172m Install Jupyter Lab 3.1.4 \e[0m"
+#curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+#sudo apt install -y nodejs libffi-dev libssl1.0-dev 
+sudo -H pip3 install jupyterlab==3.1.4 ipywidgets=7.6.3
 sudo -H jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 jupyter lab --generate-config
@@ -83,6 +77,7 @@ sudo jupyter lab build
 # install version of traitlets with dlink.link() feature
 # (added after 4.3.3 and commits after the one below only support Python 3.7+) 
 #
+echo "\e[48;5;172m Install traitlets \e[0m"
 sudo python3 -m pip install git+https://github.com/ipython/traitlets@dead2b8cdde5913572254cf6dc70b5a6065b86f8
 
 
