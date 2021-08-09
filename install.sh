@@ -52,9 +52,9 @@ sudo -H pip3 install --verbose boto3 pandas
 
 
 echo "\e[48;5;172m Install Jupyter Lab 3.1.4 \e[0m"
-#curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-#sudo apt install -y nodejs libffi-dev libssl1.0-dev 
-sudo -H pip3 install jupyterlab==3.1.4 ipywidgets=7.6.3
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+sudo apt install -y nodejs libffi-dev libssl1.0-dev 
+sudo -H pip3 install jupyterlab==3.1.4 ipywidgets==7.6.3
 sudo -H jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 jupyter lab --generate-config
