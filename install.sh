@@ -29,21 +29,20 @@ sudo -H pip3 install jetson-stats
 # Install the pre-built PyTorch pip wheel 
 echo "\e[45m Install the pre-built PyTorch pip wheel  \e[0m"
 cd
-wget -N https://nvidia.box.com/shared/static/9eptse6jyly1ggt9axbja2yrmj6pbarc.whl -O torch-1.6.0-cp36-cp36m-linux_aarch64.whl 
+wget -N https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl -O torch-1.8.0-cp36-cp36m-linux_aarch64.whl 
 sudo apt-get install -y python3-pip libopenblas-base libopenmpi-dev 
 sudo -H pip3 install Cython
-sudo -H pip3 install numpy==1.19.4 torch-1.6.0-cp36-cp36m-linux_aarch64.whl
+sudo -H pip3 install numpy torch-1.8.0-cp36-cp36m-linux_aarch64.whl
 
 # Install torchvision package
 echo "\e[45m Install torchvision package \e[0m"
+sudo apt-get install -y libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
 cd
-git clone https://github.com/pytorch/vision torchvision
+git clone --branch v0.9.0 https://github.com/pytorch/vision torchvision
 cd torchvision
-sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev
-git checkout tags/v0.7.0
-sudo -H python3 setup.py install
+sudo -H BUILD_VERSION=0.9.0 python3 setup.py install
 cd  ../
-sudo -H pip3 install pillow
+sudo -H pip3 install 'pillow<7'
 
 # pip dependencies for pytorch-ssd
 echo "\e[45m Install dependencies for pytorch-ssd \e[0m"
