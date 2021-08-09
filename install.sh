@@ -81,10 +81,9 @@ if [ ! -d "$tf_models_dir" ] ; then
 fi
 
 
-echo "\e[48;5;172m Install Jupyter Lab 2.2.6 \e[0m"
+echo "\e[48;5;172m Install Jupyter Lab 3.1.4 \e[0m"
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 #sudo apt install -y nodejs libffi-dev libssl1.0-dev 
-#sudo -H pip3 install jupyter jupyterlab==2.2.6 --verbose
 sudo -H pip3 install jupyterlab==3.1.4 ipywidgets=7.6.3
 sudo -H jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
